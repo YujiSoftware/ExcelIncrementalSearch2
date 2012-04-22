@@ -1,0 +1,72 @@
+/* ----- MAIN CONTENTS ----- */
+body {
+  margin: 50px 8px 8px 8px;
+  margin: 8px 8px 8px 8px\9; /* For IE8 */
+}
+span.highlight{
+  background-color: yellow;
+}
+
+/* ----- BAR -----*/
+#bar_wrapper{
+  position:fixed;
+  top: 0px;
+  left: 0px;
+  height: 42px;
+  width: 100%;
+  background-color: silver;
+  border-bottom: 2px groove silver;
+  overflow: hidden;
+}
+#bar{
+  padding: 8px;
+  text-align: center;
+}
+#bar a.product{
+  position: absolute;
+  top: 50%;
+  right: 8px;
+  font-size: 12px; 
+  height: 16px;
+  margin-top: -8px;
+}
+#bar a.product:link,
+#bar a.product:visited
+{
+  color: lightslategray;
+}
+#bar a.product:hover,
+#bar a.product:active
+{
+  color: steelblue;
+}
+#quicksearch{
+  display: inline-block;
+  margin: 0px;
+  width: 40%;
+  max-width: 400px;
+  min-width: 200px;
+}
+
+/* ----- KEYWORD ----- */
+#keyword {
+  width: 100%;
+  font-size: 16px;
+}
+.input_block{
+  position: relative;
+}
+
+.input_block .delete {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  right: 5px;
+  margin-top: -8px;
+  background: url(delete.png) no-repeat 0 0;
+  cursor: pointer;
+}
+.input_block .delete:hover{
+  background: url(delete.png) no-repeat -16px 0;
+}
