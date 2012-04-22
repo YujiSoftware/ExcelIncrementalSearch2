@@ -64,7 +64,11 @@ $(document).ready(function(){
         },
         prepareQuery: function (val) {
             // 半角 or 全角スペースで分割
-            return val.toLowerCase().split(/[ 　]/);
+            return val.toLowerCase()
+                      .replace("&", "&amp;")
+                      .replace("<", "&lt;")
+                      .replace(">", "&gt;")
+                      .split(/[ 　]/);
         }
     });
     
