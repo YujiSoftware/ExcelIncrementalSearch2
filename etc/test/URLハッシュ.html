@@ -39,7 +39,7 @@
 </tr>
 <tr>
 	<td>verifyEval</td>
-	<td>window.location.hash</td>
+	<td>decodeURIComponent(window.location.hash)</td>
 	<td>#ライブラリ</td>
 </tr>
 <!--URLハッシュ（ページを開く）-->
@@ -51,6 +51,32 @@
 <tr>
 	<td>open</td>
 	<td>http://localhost/search%20%2523%23.htm#仕様</td>
+	<td></td>
+</tr>
+<tr>
+	<td>waitForNotVisible</td>
+	<td>//tr[9]</td>
+	<td></td>
+</tr>
+<tr>
+	<td>verifyValue</td>
+	<td>id=keyword</td>
+	<td>仕様</td>
+</tr>
+<tr>
+	<td>verifyCssCount</td>
+	<td>css=span.highlight</td>
+	<td>1</td>
+</tr>
+<!--URLハッシュ（ページを開く、URIエンコード）-->
+<tr>
+	<td>open</td>
+	<td>about:blank</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/search%20%2523%23.htm#%E4%BB%95%E6%A7%98</td>
 	<td></td>
 </tr>
 <tr>

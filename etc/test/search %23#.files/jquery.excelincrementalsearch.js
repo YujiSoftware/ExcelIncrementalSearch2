@@ -73,10 +73,10 @@ $(document).ready(function(){
     });
     
     $('#keyword').blur(function(){
-        location.replace("#" + $("#keyword").val());
+        location.replace("#" + encodeURIComponent($("#keyword").val()));
     });
     
     if(location.hash){
-        $("#keyword").val(location.hash.substring(1)).trigger('keyup');
+        $("#keyword").val(decodeURIComponent(location.hash.substring(1))).trigger('keyup');
     }
 });
