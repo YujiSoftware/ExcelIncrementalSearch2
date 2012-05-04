@@ -85,13 +85,7 @@ $(document).ready(function(){
             for(var i = 0; i < groups.length; i++){
                 var group = $(groups[i]);
                 if(group.is(":visible")){
-                    group.each(function(){
-                        this.style.display = "";
-                        if($.browser.msie){
-                            $("shape", this).css("display", "");
-                            $("td", this).css("display", "");
-                        }
-                    });
+                    group.each(this.show);
                 }
             }
         },
