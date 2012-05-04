@@ -1,4 +1,34 @@
+(function() {
+    jQuery.fn.max = function(){
+        return Math.max.apply(null, this.get());
+    };
+})(jQuery);
+
 $(document).ready(function(){
+    var getGroups = function(rows){
+        var groups = [], group = [];
+        var count = 0;
+        
+        for(var i = 0, len = rows.length; i < len; i++){
+            group.push(rows[i]);
+
+            var rowSpan = $('td', rows[i])
+                            .map(function(){ return this.rowSpan; })
+                            .max();
+            count = Math.max(count, rowSpan);
+            if(count <= 1){
+                // 結合がある場合のみ、グループ化する
+                if(group.length > 1){
+                    groups.push(group);
+                }
+                group = [];
+            }
+            count--;
+        }
+
+        return groups;
+    };
+
     // WebKit系ブラウザでは 0.5pt の枠線が表示されないため、1pt に置換する。
     if(navigator.userAgent.indexOf('AppleWebKit/') > -1){
         var regex = /0.5/g;
@@ -34,7 +64,10 @@ $(document).ready(function(){
         }
     });
     
-    $('#keyword').quicksearch('div > table > tbody > tr:gt(0)', {
+    var rows = $('div > table > tbody > tr:gt(0)');
+    var groups = getGroups(rows)
+    
+    $('#keyword').quicksearch(rows, {
         delay: 50,
         bind: 'search',
         onBefore: function(results) {
@@ -45,6 +78,20 @@ $(document).ready(function(){
             for(var i = 0; i < keyword.length; i++){
                 if(keyword[i].length != 0){
                     $(results).highlight(keyword[i]);
+                }
+            }
+
+            // セルの結合がある場合、その行はまとめて表示する
+            for(var i = 0; i < groups.length; i++){
+                var group = $(groups[i]);
+                if(group.is(":visible")){
+                    group.each(function(){
+                        this.style.display = "";
+                        if($.browser.msie){
+                            $("shape", this).css("display", "");
+                            $("td", this).css("display", "");
+                        }
+                    });
                 }
             }
         },
