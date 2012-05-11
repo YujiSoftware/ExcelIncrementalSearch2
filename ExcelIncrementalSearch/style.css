@@ -17,6 +17,7 @@ span.highlight{
   background-color: silver;
   border-bottom: 2px groove silver;
   overflow: hidden;
+  z-index: 2147483647; /* max value for this property */
 }
 #bar{
   padding: 8px;
