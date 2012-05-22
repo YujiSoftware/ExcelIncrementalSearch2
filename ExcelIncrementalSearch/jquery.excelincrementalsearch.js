@@ -31,13 +31,14 @@ $(document).ready(function(){
 
     // WebKit系ブラウザでは 0.5pt の枠線が表示されないため、1pt に置換する。
     if(navigator.userAgent.indexOf('AppleWebKit/') > -1){
-        var regex = /0.5/g;
-        $(document.styleSheets[0].cssRules).each(function(){
-            var borders = ["borderWidth", "borderTopWidth", "borderBottomWidth", "borderLeftWidth", "borderRightWidth"];
+        var borderReplace = function(){
+            var borders = ["borderTopWidth", "borderBottomWidth", "borderLeftWidth", "borderRightWidth"];
             for(var i = 0; i < borders.length; i++){
-                this.style[borders[i]] = this.style[borders[i]].replace(regex, '1');
+                this.style[borders[i]] = this.style[borders[i]].replace(/0.5/g, '1');
             }
-        });
+        };
+        $(document.styleSheets[0].cssRules).each(borderReplace);
+        $('td').each(borderReplace);
     }
 
     var bar = [
