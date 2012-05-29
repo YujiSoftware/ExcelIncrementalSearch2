@@ -72,7 +72,7 @@ $(document).ready(function(){
     var rows = $('tr:gt(' + (header - 1) + ')', tbody);
     
     // 結合されている行をグループ化
-    var groups = getGroups(rows)
+    var groups = getGroups(rows);
 
     $('#keyword').quicksearch(rows, {
         delay: 50,
