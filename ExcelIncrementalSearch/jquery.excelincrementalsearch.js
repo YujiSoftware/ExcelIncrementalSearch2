@@ -73,7 +73,7 @@ $(document).ready(function(){
     
     // 結合されている行をグループ化
     var groups = getGroups(rows)
-    
+
     $('#keyword').quicksearch(rows, {
         delay: 50,
         bind: 'search',
@@ -97,14 +97,16 @@ $(document).ready(function(){
             }
         },
         show: function () {
-            this.style.display = "";
+            $(this).addClass("show");
+            $(this).removeClass("not_show");
             if($.browser.msie){
                 $("shape", this).css("display", "");
                 $("td", this).css("display", "");
             }
         },
         hide: function () {
-            this.style.display = "none";
+            $(this).addClass("not_show");
+            $(this).removeClass("show");
             if($.browser.msie){
                 $("shape", this).css("display", "none");  // 画像が残る
                 $("td", this).css("display", "none");     // 線が残る
