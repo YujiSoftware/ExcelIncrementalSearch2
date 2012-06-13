@@ -7,64 +7,6 @@ span.highlight{
   background-color: yellow;
 }
 
-.show{
-  -moz-animation-duration: 0.2s;
-  -moz-animation-name: fadein;
-  -webkit-animation-duration: 0.2s;
-  -webkit-animation-name: fadein;
-  -ms-animation-duration: 0.2s;
-  -ms-animation-name: fadein;
-  -o-animation-duration: 0.2s;
-  -o-animation-name: fadein;
-  animation-duration: 0.2s;
-  animation-name: fadein;
-}
-
-@-moz-keyframes fadein{
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
-  }
-}
-@-webkit-keyframes fadein{
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
-  }
-}
-@-ms-keyframes fadein{
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
-  }
-}
-@-o-keyframes fadein{
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
-  }
-}
-@keyframes fadein{
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 100;
-  }
-}
-
-.not_show{
-  display: none;
-}
-
 /* ----- BAR -----*/
 #bar_wrapper{
   position:fixed;
