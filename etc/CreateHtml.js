@@ -6,10 +6,10 @@ try{
 
     var excel = WScript.CreateObject("Excel.Application");
     excel.Visible = true;
-    excel.Workbooks.Open(currentDir + "\\..\\..\\" + "ExcelIncrementalSearch.xla");
+    excel.Workbooks.Open(currentDir + "\\..\\" + "ExcelIncrementalSearch.xla");
     
     for(var i = 0, len = files.length; i < len; i++){
-        excel.Workbooks.Open(currentDir + "\\" + files[i]);
+        excel.Workbooks.Open(currentDir + "\\test\\" + files[i]);
         excel.Run("ExcelIncrementalSearch.xla!CreateExcelIncrementalSearch");
     }
 
