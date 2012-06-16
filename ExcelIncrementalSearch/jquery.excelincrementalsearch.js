@@ -50,7 +50,7 @@ $(document).ready(function(){
         '          <a class="delete" title="検索キーワードを消去" onclick="$(\'#keyword\').val(\'\').trigger(\'keyup\').trigger(\'blur\').focus();"></a>',
         '        </div>',
         '      </form>',
-        '      <a class="product" href="http://hp.vector.co.jp/authors/VA049605/excel_incremental_search.html" target="_blank">Excelインクリメンタルサーチ ver2.0.3</a>',
+        '      <a class="product" href="http://hp.vector.co.jp/authors/VA049605/excel_incremental_search.html" target="_blank">Excelインクリメンタルサーチ ver2.0.4</a>',
         '  </div>',
         '</div>',
     ];
