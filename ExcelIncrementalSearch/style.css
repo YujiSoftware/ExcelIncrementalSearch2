@@ -14,9 +14,15 @@ span.highlight{
   left: 0px;
   height: 42px;
   width: 100%;
-  background-color: silver;
-  border-bottom: 2px groove silver;
-  box-shadow: 0px 2px 8px silver;
+  background: -moz-linear-gradient(top,  lightgrey 0%, silver 100%) !important; /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,lightgrey), color-stop(100%,silver)) !important; /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top,  lightgrey 0%,silver 100%) !important; /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top,  lightgrey 0%,silver 100%) !important; /* Opera 11.10+ */
+  background: -ms-linear-gradient(top,  lightgrey 0%,silver 100%) !important; /* IE10+ */
+  background: linear-gradient(to bottom,  lightgrey 0%,silver 100%) !important; /* W3C */
+  background: lightgrey; /* Old browsers */
+  border-bottom: 1px solid grey;
+  box-shadow: 0px 2px 5px lightgrey;
   overflow: hidden;
   z-index: 2147483647; /* max value for this property */
 }
@@ -54,6 +60,9 @@ span.highlight{
 #keyword {
   width: 100%;
   font-size: 16px;
+  padding: 3px 6px;
+  border: 1px solid darkgray;
+  border-radius: 3px 3px 3px 3px;
 }
 .input_block{
   position: relative;
