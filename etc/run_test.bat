@@ -3,6 +3,18 @@
 call :SetPid
 if DEFINED pid (taskkill /f /pid %pid%)
 
+echo VBテストを実行します。
+pushd vbtest
+call test.bat
+if errorlevel 1 (
+    echo.
+    pause
+    goto :EOF
+)
+echo VBテストに成功しました。
+echo.
+popd
+
 wscript CreateHtml.js
 echo HTMLファイルを生成しました。
 
@@ -18,7 +30,7 @@ pushd D:\Software\selenium-autoexec-server
 
     call set_classpath.bat
     start java -classpath %SELENIUM_AES_CLASSPATH% com.enjoyxstudy.selenium.autoexec.AutoExecServer startup %~dp0setting.properties
-    ping -n 6 localhost > nul
+    ping -n 8 localhost > nul
     echo SeleniumAES を起動しました。
     
     echo.
