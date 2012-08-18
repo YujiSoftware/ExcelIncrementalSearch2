@@ -1,9 +1,15 @@
 @echo off
 setlocal
 
-cscript SelectRangeTest.vbs //Nologo
-if errorlevel 1 (set RESULT=1)
+set FAILURES=0
 
-if not defined RESULT (set RESULT=0)
+for /r %%i in (*.vbs) do (
+    echo %%~nxi
+    cscript %%i //Nologo
+    call set /a FAILURES=FAILURES + %%ERRORLEVEL%%
+)
 
-exit /b %RESULT%
+echo.
+echo Failures: %FAILURES%
+
+exit /b %FAILURES%

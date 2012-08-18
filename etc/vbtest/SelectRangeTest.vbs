@@ -1,4 +1,4 @@
-success = True
+failures = 0
 current = Replace(WScript.ScriptFullName, WScript.ScriptName,"")
 
 Set excel = CreateObject("Excel.Application")
@@ -11,11 +11,16 @@ ManualRangeTest
 excel.DisplayAlerts = false
 excel.Quit()
 
-If (success) Then
-	WScript.Quit(0)
-Else
-	WScript.Quit(1)
-End If
+WScript.Quit(failures)
+
+'------------------------------------
+
+Sub AssertEquals(message, expected, actual)
+	If (expected <> actual) Then
+		WScript.Echo(message + " expected:<" + expected + "> but was:<" + actual + ">)")
+		failures = failures + 1
+	End If
+End Sub
 
 '------------------------------------
 
@@ -23,12 +28,8 @@ Sub AutoRangeTest()
 	excel.Cells(2, 2).Select
 	excel.Run("ExcelIncrementalSearch.xla!SelectRange")
 	
-	If (excel.Selection.Address <> "$B$2:$F$10") Then
-		WScript.Echo("AutoRangeTest Failed. [Selection.Address=" & excel.Selection.Address & "]")
-		success = False
-	End If
+	AssertEquals "AutoRangeTest Failed.", "$B$2:$F$10", excel.Selection.Address
 End Sub
-
 
 '------------------------------------
 
@@ -36,9 +37,6 @@ Sub ManualRangeTest()
 	excel.Range("C4:E6").Select
 	excel.Run("ExcelIncrementalSearch.xla!SelectRange")
 	
-	if (excel.Selection.Address <> "$C$4:$E$6") Then
-		WScript.Echo("ManualRangeTest Failed. [Selection.Address=" & excel.Selection.Address & "]")
-		success = False
-	End If
+	AssertEquals "ManualRangeTest Failed.", "$C$4:$E$6", excel.Selection.Address
 End Sub
 
