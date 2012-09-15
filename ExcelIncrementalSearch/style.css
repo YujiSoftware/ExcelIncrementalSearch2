@@ -37,6 +37,7 @@ span.highlight{
   font-size: 12px; 
   height: 16px;
   margin-top: -8px;
+  text-shadow: 1px 1px 3px rgba(64, 64, 64, 0.2);
 }
 #bar a.product:link,
 #bar a.product:visited
