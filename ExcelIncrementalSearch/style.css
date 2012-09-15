@@ -76,9 +76,9 @@ span.highlight{
   top: 50%;
   right: 5px;
   margin-top: -8px;
-  background: url(delete.png) no-repeat 0 0;
+  background: url(delete.png) no-repeat -16px 0;
   cursor: pointer;
 }
 .input_block .delete:hover{
-  background: url(delete.png) no-repeat -16px 0;
+  background: url(delete.png) no-repeat 0 0;
 }
