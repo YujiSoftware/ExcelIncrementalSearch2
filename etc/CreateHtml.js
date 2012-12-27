@@ -1,5 +1,5 @@
 try{
-    var files = ["search.xlsx", "search %23#.xlsx", "join.xlsx", "join_header.xlsx", "img.xlsx"];
+    var files = ["search.xlsx", "search %23#.xlsx", "join.xlsx", "join_header.xlsx", "img.xlsx", "large_table.xlsx"];
     
     var objWshShell = new ActiveXObject("WScript.Shell");
     var currentDir = objWshShell.CurrentDirectory;

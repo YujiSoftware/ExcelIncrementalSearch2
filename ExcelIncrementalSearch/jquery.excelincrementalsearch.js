@@ -121,7 +121,14 @@ $(document).ready(function(){
     });
     
     $('#keyword').blur(function(){
+        // キーワードが入力されていないときのURLは「 ～.html# 」となる。
+        // これをURLとして設定すると、自動でページの先頭へスクロールしてしまう。
+        // これだと使いにくいので、設定後にスクロール位置を戻す。
+        var top = document.body.scrollTop;
+        var left = document.body.scrollLeft;
         location.replace("#" + encodeURIComponent($("#keyword").val()));
+        document.body.scrollTop = top;
+        document.body.scrollLeft = left;
     });
     
     if(location.hash){

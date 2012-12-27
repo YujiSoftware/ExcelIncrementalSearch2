@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head profile="http://selenium-ide.openqa.org/profiles/test-case">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<link rel="selenium.base" href="http://localhost/" />
+<title>スクロール位置を戻す</title>
+</head>
+<body>
+<table cellpadding="1" cellspacing="1" border="1">
+<thead>
+<tr><td rowspan="1" colspan="3">スクロール位置を戻す</td></tr>
+</thead><tbody>
+<!--スクロール位置を戻す-->
+<!--検索キーワードが空のときに、キーワード欄からフォーカスが外れると、勝手にページ上部へスクロールしてしまう問題の修正確認-->
+<tr>
+	<td>open</td>
+	<td>about:blank</td>
+	<td></td>
+</tr>
+<tr>
+	<td>open</td>
+	<td>http://localhost/large_table.htm</td>
+	<td></td>
+</tr>
+<tr>
+	<td>runScript</td>
+	<td>window.scrollTo(1024,1024)</td>
+	<td></td>
+</tr>
+<tr>
+	<td>focus</td>
+	<td>id=keyword</td>
+	<td></td>
+</tr>
+<tr>
+	<td>fireEvent</td>
+	<td>id=keyword</td>
+	<td>blur</td>
+</tr>
+<tr>
+	<td>assertNotEval</td>
+	<td>window.document.body.scrollTop</td>
+	<td>0</td>
+</tr>
+<tr>
+	<td>assertNotEval</td>
+	<td>window.document.body.scrollLeft</td>
+	<td>0</td>
+</tr>
+
+</tbody></table>
+</body>
+</html>
