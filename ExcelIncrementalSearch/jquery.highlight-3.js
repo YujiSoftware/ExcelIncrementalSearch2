@@ -75,7 +75,9 @@ jQuery.fn.unhighlight = function (options) {
     return this.find(settings.element + "." + settings.className).each(function () {
         var parent = this.parentNode;
         parent.replaceChild(this.firstChild, this);
-        parent.normalize();
+        //parent.normalize();
+    }).end().each(function () {
+        this.innerHTML = this.innerHTML;
     }).end();
 };
 
