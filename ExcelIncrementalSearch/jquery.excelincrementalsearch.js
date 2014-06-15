@@ -82,11 +82,7 @@ $(document).ready(function(){
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().split(/[ 　]/);
-            for(var i = 0; i < keyword.length; i++){
-                if(keyword[i].length != 0){
-                    $(results).highlight(keyword[i]);
-                }
-            }
+            $(results).highlight(keyword);
 
             // セルの結合がある場合、その行はまとめて表示する
             for(var i = 0; i < groups.length; i++){
