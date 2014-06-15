@@ -78,7 +78,7 @@ $(document).ready(function(){
         delay: 50,
         bind: 'search',
         onBefore: function(results) {
-            $(results).removeHighlight();       //ハイライト消去
+            $(results).unhighlight();       //ハイライト消去
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().split(/[ 　]/);
