@@ -77,7 +77,10 @@ jQuery.fn.unhighlight = function (options) {
         parent.replaceChild(this.firstChild, this);
         //parent.normalize();
     }).end().each(function () {
-        this.innerHTML = this.innerHTML;
+        try{
+          this.innerHTML = this.innerHTML;
+        }catch(e){
+        }
     }).end();
 };
 
