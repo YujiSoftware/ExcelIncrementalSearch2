@@ -58,7 +58,7 @@ $(document).ready(function(){
 
     var oldValue;
     $('#keyword').bind('keyup', oldValue, function(){
-        var value = $('#keyword').val();
+        var value = $('#keyword').val().trim();
         if(oldValue !== value){
             oldValue = value;
             $('#keyword').trigger('search');
@@ -75,10 +75,13 @@ $(document).ready(function(){
     var groups = getGroups(rows);
     
     $('#keyword').quicksearch(rows, {
-        delay: 50,
+        delay: 1500,
         bind: 'search',
         onBefore: function(results) {
             $(results).unhighlight();       //ハイライト消去
+            
+            var keyword =  $("#keyword").val().trim();
+            this.delay = Math.max(500, 3000 / Math.max(1, keyword.length / 2));
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().split(/[ 　]/);
