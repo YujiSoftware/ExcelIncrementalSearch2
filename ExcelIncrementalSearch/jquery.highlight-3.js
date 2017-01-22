@@ -72,10 +72,12 @@ jQuery.fn.unhighlight = function (options) {
     var settings = { className: 'highlight', element: 'span' };
     jQuery.extend(settings, options);
 
-    return this.find(settings.element + "." + settings.className).each(function () {
+    return this.find(settings.element + "." + settings.className).map(function () {
         var parent = this.parentNode;
         parent.replaceChild(this.firstChild, this);
-        
+
+        return parent;
+    }).each(function(){
         // BUGFIX for IE11
         // javascript - IE11 DOM normalize doesn't work with table row - Stack Overflow
         // http://stackoverflow.com/questions/39095101/ie11-dom-normalize-doesnt-work-with-table-row
@@ -83,7 +85,7 @@ jQuery.fn.unhighlight = function (options) {
           parent.innerHTML = parent.innerHTML;
         }catch(e){
         }
-    }).end();
+    });
 };
 
 jQuery.fn.highlight = function (words, options) {
