@@ -96,14 +96,14 @@ $(document).ready(function(){
             }
         },
         show: function () {
-            this.style.display = "";
+            this.classList.remove("hide");
             if($.browser.msie){
                 $("shape", this).css("display", "");
                 $("td", this).css("display", "");
             }
         },
         hide: function () {
-            this.style.display = "none";
+            this.classList.add("hide");
             if($.browser.msie){
                 $("shape", this).css("display", "none");  // ‰æ‘œ‚ªc‚é
                 $("td", this).css("display", "none");     // ü‚ªc‚é
