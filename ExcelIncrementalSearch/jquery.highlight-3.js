@@ -79,13 +79,9 @@ jQuery.fn.unhighlight = function (options) {
         // BUGFIX for IE11
         // javascript - IE11 DOM normalize doesn't work with table row - Stack Overflow
         // http://stackoverflow.com/questions/39095101/ie11-dom-normalize-doesnt-work-with-table-row
-        if($.browser.msie && $.browser.version == "11.0"){
-            try{
-              parent.innerHTML = parent.innerHTML;
-            }catch(e){
-            }
-        }else{
-            parent.normalize();
+        try{
+          parent.innerHTML = parent.innerHTML;
+        }catch(e){
         }
     }).end();
 };
