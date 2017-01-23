@@ -75,13 +75,13 @@ $(document).ready(function(){
     var groups = getGroups(rows);
     
     $('#keyword').quicksearch(rows, {
-        delay: 1500,
+        delay: 750,
         bind: 'search',
         onBefore: function(results) {
             $(results).unhighlight();       //ハイライト消去
             
             var keyword =  $("#keyword").val().trim();
-            this.delay = Math.max(500, 3000 / Math.max(1, keyword.length / 2));
+            this.delay = Math.max(300, 750 / Math.max(1, keyword.length / 2));
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().split(/[ 　]/);
