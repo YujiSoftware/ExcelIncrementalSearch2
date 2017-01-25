@@ -50,6 +50,7 @@ $(document).ready(function(){
         '          <a class="delete" title="検索キーワードを消去" onclick="$(\'#keyword\').val(\'\').trigger(\'keyup\').trigger(\'blur\').focus();"></a>',
         '        </div>',
         '      </form>',
+        '      <div id="count"></div>',
         '      <a class="product" href="http://hp.vector.co.jp/authors/VA049605/excel_incremental_search.html" target="_blank">Excelインクリメンタルサーチ ver2.0.11</a>',
         '  </div>',
         '</div>',
@@ -84,8 +85,9 @@ $(document).ready(function(){
             this.delay = Math.max(300, 750 / Math.max(1, keyword.length / 2));
         },
         onAfter: function (results) {
-            var keyword = $("#keyword").val().split(/[ 　]/);
-            $(results).highlight(keyword);
+            var keyword = $("#keyword").val().trim();
+            $(results).highlight(keyword.split(/[ 　]/));
+            $("#count").text(keyword.length > 0 ? (results.length + "/" + rows.length) : "");
 
             // セルの結合がある場合、その行はまとめて表示する
             for(var i = 0; i < groups.length; i++){
