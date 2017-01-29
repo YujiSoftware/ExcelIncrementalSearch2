@@ -30,19 +30,6 @@ $(document).ready(function(){
     };
 
     var isMSIE = navigator.userAgent.indexOf('Trident/') > -1;
-    var isWebKit = navigator.userAgent.indexOf('AppleWebKit/') > -1;
-
-    // WebKit系ブラウザでは 0.5pt の枠線が表示されないため、1pt に置換する。
-    if(isWebKit){
-        var borderReplace = function(){
-            var borders = ["borderTopWidth", "borderBottomWidth", "borderLeftWidth", "borderRightWidth"];
-            for(var i = 0; i < borders.length; i++){
-                this.style[borders[i]] = this.style[borders[i]].replace(/0.5/g, '1');
-            }
-        };
-        $(document.styleSheets[0].cssRules).each(borderReplace);
-        $('td').each(borderReplace);
-    }
 
     var bar = [
         '<div id="bar_wrapper">',
