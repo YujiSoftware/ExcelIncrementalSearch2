@@ -29,8 +29,11 @@ $(document).ready(function(){
         return groups;
     };
 
+    var isMSIE = navigator.userAgent.indexOf('Trident/') > -1;
+    var isWebKit = navigator.userAgent.indexOf('AppleWebKit/') > -1;
+
     // WebKit系ブラウザでは 0.5pt の枠線が表示されないため、1pt に置換する。
-    if(navigator.userAgent.indexOf('AppleWebKit/') > -1){
+    if(isWebKit){
         var borderReplace = function(){
             var borders = ["borderTopWidth", "borderBottomWidth", "borderLeftWidth", "borderRightWidth"];
             for(var i = 0; i < borders.length; i++){
@@ -99,14 +102,14 @@ $(document).ready(function(){
         },
         show: function () {
             this.classList.remove("hide");
-            if($.browser.msie){
+            if(isMSIE){
                 $("shape", this).css("display", "");
                 $("td", this).css("display", "");
             }
         },
         hide: function () {
             this.classList.add("hide");
-            if($.browser.msie){
+            if(isMSIE){
                 $("shape", this).css("display", "none");  // 画像が残る
                 $("td", this).css("display", "none");     // 線が残る
             }
