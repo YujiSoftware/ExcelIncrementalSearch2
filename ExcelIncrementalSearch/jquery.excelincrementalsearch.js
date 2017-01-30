@@ -29,8 +29,6 @@ $(document).ready(function(){
         return groups;
     };
 
-    var isMSIE = navigator.userAgent.indexOf('Trident/') > -1;
-
     var bar = [
         '<div id="bar_wrapper">',
         '  <div id="bar">',
@@ -89,17 +87,9 @@ $(document).ready(function(){
         },
         show: function () {
             this.classList.remove("hide");
-            if(isMSIE){
-                $("shape", this).css("display", "");
-                $("td", this).css("display", "");
-            }
         },
         hide: function () {
             this.classList.add("hide");
-            if(isMSIE){
-                $("shape", this).css("display", "none");  // 画像が残る
-                $("td", this).css("display", "none");     // 線が残る
-            }
         },
         prepareQuery: function (val) {
             // 半角 or 全角スペースで分割
