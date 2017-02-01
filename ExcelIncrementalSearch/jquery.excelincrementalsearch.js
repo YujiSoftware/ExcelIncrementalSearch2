@@ -46,11 +46,18 @@ $(document).ready(function(){
     $(document.body).prepend(bar.join(""));
 
     var oldValue;
+    var timeout;
     $('#keyword').bind('keyup', oldValue, function(){
         var value = $('#keyword').val().trim();
         if(oldValue !== value){
             oldValue = value;
-            $('#keyword').trigger('search');
+            
+            var delay = Math.max(250, 750 / Math.max(1, value.length / 2));
+            
+            window.clearTimeout(timeout);
+            timeout = window.setTimeout(function () {
+                $('#keyword').trigger('search');
+            }, delay);
         }
     });
 
@@ -64,13 +71,10 @@ $(document).ready(function(){
     var groups = getGroups(rows);
     
     $('#keyword').quicksearch(rows, {
-        delay: 750,
+        delay: 0,
         bind: 'search',
         onBefore: function(results) {
             $(results).unhighlight();       //ハイライト消去
-            
-            var keyword =  $("#keyword").val().trim();
-            this.delay = Math.max(300, 750 / Math.max(1, keyword.length / 2));
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().trim();
