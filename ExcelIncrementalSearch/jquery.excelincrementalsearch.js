@@ -65,7 +65,7 @@ $(document).ready(function(){
     // （ヘッダ = 1行目。ただし、1行目が結合されている場合、結合されている全部の行をヘッダとする）
     var tbody = $('div > table > tbody');
     var header = $('tr:first td', tbody).map(function(){ return this.rowSpan; }).max();
-    var rows = $($('> tr:gt(' + (header - 1) + ')', tbody).get().reverse());;
+    var rows = $($('> tr:gt(' + (header - 1) + ')', tbody).get().reverse());
     
     // 結合されている行をグループ化
     var groups = getGroups(rows);
