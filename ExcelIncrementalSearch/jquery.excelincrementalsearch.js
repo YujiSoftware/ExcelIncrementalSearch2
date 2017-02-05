@@ -74,13 +74,35 @@ $(document).ready(function(){
         delay: 0,
         bind: 'search',
         onBefore: function(results) {
+        delay: 0,
+        bind: 'search',
+        highlightTimer: null,
+        onBefore: function(results) {
+            clearInterval(this.highlightTimer);
             $(results).unhighlight();       //ハイライト消去
         },
         onAfter: function (results) {
             var keyword = $("#keyword").val().trim();
-            $(results).highlight(keyword.split(/[ 　]/));
-            $("#count").text(keyword.length > 0 ? (results.length + "/" + rows.length) : "");
 
+            if(keyword.length > 0){
+                  var current = 0;
+                  var self = this;
+                  this.highlightTimer = setInterval(function(){
+                      for(var i = 0; i < Math.min(results.length, current + 200); i++){
+                          $(results[i]).highlight(keyword.split(/[ 　]/));
+                      }
+                      current = i;
+
+                      if(current == results.length){
+                          clearInterval(self.highlightTimer);
+                      }
+                  }, 100);
+            
+                  $("#count").text(results.length + "/" + rows.length);
+            }else{
+                $("#count").text("");
+            }
+            
             // セルの結合がある場合、その行はまとめて表示する
             for(var i = 0; i < groups.length; i++){
                 var group = $(groups[i]);
