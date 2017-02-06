@@ -87,16 +87,17 @@ $(document).ready(function(){
             if(keyword.length > 0){
                   var current = 0;
                   var self = this;
-                  this.highlightTimer = setInterval(function(){
-                      for(var i = 0; i < Math.min(results.length, current + 200); i++){
+                  var highlight = function(){
+                      for(var i = current; i < Math.min(results.length, current + 50); i++){
                           $(results[i]).highlight(keyword.split(/[ @]/));
                       }
                       current = i;
 
-                      if(current == results.length){
-                          clearInterval(self.highlightTimer);
+                      if(current != results.length){
+                          self.highlightTimer = setTimeout(highlight, 25);
                       }
-                  }, 100);
+                  };
+                  this.highlightTimer = setTimeout(highlight, 0);
             
                   $("#count").text(results.length + "/" + rows.length);
             }else{
