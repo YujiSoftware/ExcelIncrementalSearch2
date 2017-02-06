@@ -88,10 +88,9 @@ $(document).ready(function(){
                   var current = 0;
                   var self = this;
                   var highlight = function(){
-                      for(var i = current; i < Math.min(results.length, current + 50); i++){
-                          $(results[i]).highlight(keyword.split(/[ @]/));
-                      }
-                      current = i;
+                      var limit = Math.min(results.length, current + 50);
+                      $(results.slice(current, limit)).highlight(keyword.split(/[ @]/));
+                      current = limit;
 
                       if(current != results.length){
                           self.highlightTimer = setTimeout(highlight, 25);
