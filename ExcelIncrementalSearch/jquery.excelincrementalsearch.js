@@ -136,6 +136,6 @@ $(document).ready(function(){
     });
     
     if(location.hash){
-        $("#keyword").val(decodeURIComponent(location.hash.substring(1))).trigger('keyup');
+        $("#keyword").val(decodeURIComponent(location.hash.substring(1))).trigger('search');
     }
 });
