@@ -52,7 +52,7 @@ $(document).ready(function(){
         if(oldValue !== value){
             oldValue = value;
             
-            var delay = Math.max(250, 750 / Math.max(1, value.length / 2));
+            var delay = Math.max(100, 500 / Math.max(1, value.length));
             
             window.clearTimeout(timeout);
             timeout = window.setTimeout(function () {
