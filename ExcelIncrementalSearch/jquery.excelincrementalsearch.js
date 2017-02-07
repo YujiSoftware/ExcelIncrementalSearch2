@@ -73,9 +73,6 @@ $(document).ready(function(){
     $('#keyword').quicksearch(rows, {
         delay: 0,
         bind: 'search',
-        onBefore: function(results) {
-        delay: 0,
-        bind: 'search',
         highlightTimer: null,
         onBefore: function(results) {
             clearInterval(this.highlightTimer);
