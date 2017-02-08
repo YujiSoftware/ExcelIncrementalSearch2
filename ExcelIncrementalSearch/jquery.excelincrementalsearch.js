@@ -39,7 +39,7 @@ $(document).ready(function(){
         '        </div>',
         '      </form>',
         '      <div id="count"></div>',
-        '      <a class="product" href="http://hp.vector.co.jp/authors/VA049605/excel_incremental_search.html" target="_blank">Excelインクリメンタルサーチ ver2.0.11</a>',
+        '      <a class="product" href="http://hp.vector.co.jp/authors/VA049605/excel_incremental_search.html" target="_blank">Excelインクリメンタルサーチ ver2.0.12</a>',
         '  </div>',
         '</div>',
     ];
