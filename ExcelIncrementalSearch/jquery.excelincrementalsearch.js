@@ -52,7 +52,7 @@ $(document).ready(function(){
         if(oldValue !== value){
             oldValue = value;
             
-            var delay = Math.max(100, 500 / Math.max(1, value.length));
+            var delay = Math.max(100, 650 / Math.max(1, value.length));
             
             window.clearTimeout(timeout);
             timeout = window.setTimeout(function () {
@@ -88,6 +88,7 @@ $(document).ready(function(){
                       var limit = Math.min(results.length, current + 50);
                       $(results.slice(current, limit)).highlight(keyword.split(/[ Å@]/));
                       current = limit;
+                      console.log(current);
 
                       if(current != results.length){
                           self.highlightTimer = setTimeout(highlight, 25);
