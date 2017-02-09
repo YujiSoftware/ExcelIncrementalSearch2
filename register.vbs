@@ -10,6 +10,7 @@ excel.Visible = false
 excel.AddIns("ExcelIncrementalSearch").Installed = False
 excel.Application.Quit
 
+WScript.Sleep 2000
 Cleanup
 
 On Error Goto 0
