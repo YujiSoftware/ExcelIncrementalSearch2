@@ -88,7 +88,6 @@ $(document).ready(function(){
                       var limit = Math.min(results.length, current + 50);
                       $(results.slice(current, limit)).highlight(keyword.split(/[ Å@]/));
                       current = limit;
-                      console.log(current);
 
                       if(current != results.length){
                           self.highlightTimer = setTimeout(highlight, 25);
